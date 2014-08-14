@@ -23,12 +23,12 @@ service node["apache"]["service_name"] do
 	action [:start, :enable]
 end
 
-template "#{node["apache"]["document_root"]}/index.html" do
-  source "index.html.erb"
+cookbook_file "#{node["apache"]["document_root"]}/index.html" do
+  source "index.html"
   mode "0644"
 end
 
-# cookbook_file "#{document_root}/index.html" do
-#   source "index.html"
-#   mode "0644"
-# end
+#template "#{node["apache"]["document_root"]}/index.html" do
+#  source "index.html.erb"
+#  mode "0644"
+#end

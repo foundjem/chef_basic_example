@@ -5,25 +5,34 @@
 </head>
 
 <body>
-	<h1>Welcome to chef example!</h1>
-	
-	<h2>Hello from <%= node["fqdn"] %>!</h2>
-	
-	<p>
-		This server has <%= node["memory"]["total"].to_i / 1024 %> MB of memory
-		</br>
-		The internal IP address of this server is <%= node["ipaddress"] %>
-		</br>
-		The operating system is <%= node["platform"] %> <%= node["platform_version"] %>
-		</br></br>
-		But wait.. there is more.. yes.. you read correctly.. there is more
-		</br></br>
-		The interface eth0 has a maximum transmission unit of <%= node["network"]["interfaces"]["eth1"]["mtu"] %> bytes
-		</br>
-		
+	<h1>Welcome to chef!</h1>
+	<p>	This file was created with a chef template. It contains information (attributes) that was
+		dynamically created. You can find the template at /cookbooks/apache/templates/default/index.html.erb
 	</p>
+	
+	<h2>Attributes from ohai</h2>
+	<p>The following attributes belong the node. You don't have to set them. They are automatically gathered by the 'ohai' tool and available to you. You can see all the available information about your node by typing ohoi in the terminal of your node.</p>
+	
+	<ul>
+	<li> node["fqdn"] --> <%= node["fqdn"] %>	</li>
+	<li> node["ipaddress"] --> <%= node["ipaddress"] %>	</li>
+	<li> node["platfrom"] --> <%= node["platform"] %>	</li>
+	<li> node["platform_version"] --> <%= node["platform_version"] %>	</li>
+	<li> node["memory"]["total"] --> <%= node["memory"]["total"] %>	</li>
+	<li> node["network"]["interfaces"]["eth0"]["mtu"] --> <%= node["network"]["interfaces"]["eth0"]["mtu"] %>	</li>
+	</ul>
+	
+	<h2>User defined attributes</h2>
+	<p>User-defined attributes are very useful when e.g. you have to create a configuration file which contains information that changes from node to node or that is likely to be adapted. Examples for such information are database connection strings, urls, users, passwords and so on. You can define such attributes </p>
+	<p>The username, password and url attributes where defined with the variables parameter in the apache recipe.rb. The "user_defined_attribute" was defined in the default.rb in the attributes folder but can also be accessed from here </p>
+	
+	<ul>
+	<li> @username --> <%= @username %>	</li>
+	<li> @password --> <%= @password %>	</li>
+	<li> @url --> <%= @url %>	</li>
+	<li> node["user_defined_attribute"] --> <%= node["user_defined_attribute"] %>	</li>
+	</ul>
 
 </body>
 
 </html>
-

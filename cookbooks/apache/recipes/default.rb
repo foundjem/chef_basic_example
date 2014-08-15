@@ -7,28 +7,28 @@
 # All rights not reserved - Do Redistribute
 #
 
-# chef-repo/cookbooks/apache/recipes/default.rb
-
-# Steps that have to be completed (Part of Demo Webcast)
-# 1. Install Apache webserver
-# 2. Start the apache service
-# 3. Make sure that the service starts on reboot
-# 4. Write out home page
-
 package node["apache"]["package_name"] do
-	action :install 
+  action :install 
 end
 
 service node["apache"]["service_name"] do
-	action [:start, :enable]
+  action [:start, :enable]
 end
 
-cookbook_file "#{node["apache"]["document_root"]}/index.html" do
-  source "index.html"
+remote_directory "#{node["apache"]["document_root"]}" do
+  source "example_page"
+  mode = "0770"
+  owner = "un_folder_owner"
+  files_mode = "0440"
+  files_owner = "un_files_owner"
+end
+
+template "#{node["apache"]["document_root"]}/index.html" do
+  source "index.html.erb"
   mode "0644"
+  variables({
+    :username => "icclab",
+    :password => "hallo welt",
+    :url => "http://server.example.com"
+  })
 end
-
-#template "#{node["apache"]["document_root"]}/index.html" do
-#  source "index.html.erb"
-#  mode "0644"
-#end

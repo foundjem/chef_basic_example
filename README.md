@@ -25,3 +25,9 @@ If you want to do this on a windows machine, get the chef-client from here --> [
 
 4) Run the chef-client to execute the apache cookbook  
 \# chef-client -z -o apache
+
+**Explanation of apache cookbook**  
+Here you'll find a detailed description of the various parts of the apache  
+cookbook as well as a short introduction into chef
+
+[Chef Basics / Explanation of apache cookbook](https://docs.google.com/document/d/1r-CBmWbGjh0p_EPoxTz26xJGWe5Z8zpYGQ9uZvVwc1A/edit#)

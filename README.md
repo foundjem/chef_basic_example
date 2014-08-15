@@ -8,9 +8,9 @@ which will do the following this
 * Copying a directory onto the node which contains the contents of a website
 * Creating an example index.html file based on a template using node and user-defined attributes
 
-You can set this up on your a VM or cloud-instance of yours and play  
-around with it by following this steps. This uses the chef-client  
-running in local-mode.
+You can set this up on your VM or cloud-instance and play around  
+with it by following these steps. This uses the chef-client running  
+in local-mode.
 
 1) Install chef  
 \# curl -L https://www.opscode.com/chef/install.sh | sudo bash

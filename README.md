@@ -24,7 +24,7 @@ If you want to do this on a windows machine, get the chef-client from here --> [
 \# cd chef_basic_example/cookbooks
 
 4) Run the chef-client to execute the apache cookbook  
-\# chef-client -z -o apache
+\# chef-client -z -o apache::2.4.7_install
 
 **Explanation of apache cookbook**  
 Here you'll find a detailed description of the various parts of the apache  
